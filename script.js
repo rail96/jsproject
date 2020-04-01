@@ -6,18 +6,27 @@ let person = {
     isGay: true
 };
 
-console.log(person["name"]);
+let money = prompt("Ваш бюджет на месяц");
+let time = prompt("Введите дату в формате YYYY-MM-DD");
 
-let arr = ['plum.png', 'orange.jpg', 'apple.bmp'];
+let appData = {
+    budget: money,
+    timeData: time,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    savings: false
+};
 
-console.log(arr[1]);
+let a = prompt("Введите обязательную статью расходов в этом месяце", "Еда");
+let b = prompt("Во сколько обойдется", 0);
+let a1 = prompt("Введите обязательную статью расходов в этом месяце", "Еда");
+let b1 = prompt("Во сколько обойдется", 0);
+appData.expenses.a = b;
+appData.expenses.a1 = b1;
 
-//alert("pIZDEC!");
+alert(money / 30);
+console.log(appData.expenses.a);
 
-//let answer = confirm("Are you vagan?");
 
-//console.log(answer);
 
-let answer = +prompt("Are you vegan?", "Yes");
-
-console.log(typeof(answer));
