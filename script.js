@@ -75,14 +75,14 @@ let appData = {
         this.income.push(prompt("Ничё не забыл, Вася?", "no"));
         this.income.sort();
 
-        appData.income.forEach(function(_val, index, arr) {
-                alert("Способы доп заработка: " + (index + 1) + ': ' + arr[index]);
+        appData.income.forEach(function(item, i) {
+                alert("Способы доп заработка: " + (i + 1) + ': ' + item);
         });
     },
 };
 
 for(let item in appData){
-    console.log("Наша программа включает в себя след данные: " + item);
+    console.log("Наша программа включает в себя след данные: " + item + " - " + appData[item]);
 }
 
 
