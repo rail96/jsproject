@@ -1,12 +1,6 @@
 'use strict';
 
-let person = {
-    name: "Tom",
-    age: 30,
-    isGay: true
-};
-
-let money = prompt("Ваш бюджет на месяц");
+let money = +prompt("Ваш бюджет на месяц");
 let time = prompt("Введите дату в формате YYYY-MM-DD");
 
 let appData = {
@@ -18,15 +12,57 @@ let appData = {
     savings: false
 };
 
-let a = prompt("Введите обязательную статью расходов в этом месяце", "Еда");
-let b = prompt("Во сколько обойдется", 0);
-let a1 = prompt("Введите обязательную статью расходов в этом месяце", "Еда");
-let b1 = prompt("Во сколько обойдется", 0);
-appData.expenses.a = b;
-appData.expenses.a1 = b1;
+for (let i = 0; i < 2; i++) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt("Во сколько обойдется", '');
 
-alert(money / 30);
-console.log(appData.expenses.a);
+        if (typeof(a) === 'string' && typeof(a) != null && typeof(b) != null && a != '' && b != '' && a.length < 50) {
+            console.log("done");
+            appData.expenses[a] = b;
+        } else {
 
+        }
+}
 
+// let i = 0;
+// while (i < 2) {
+//     let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+//         b = prompt("Во сколько обойдется", '');
 
+//         if (typeof(a) === 'string' && typeof(a) != null && typeof(b) != null && a != '' && b != '' && a.length < 50) {
+//             console.log("done");
+//             appData.expenses[a] = b;
+//         } else {
+
+//         }
+//         i++;
+// }
+
+// let i = 0;
+// do {
+//     let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+//         b = prompt("Во сколько обойдется", '');
+
+//     if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null && a != '' && b != '' && a.length < 50) {
+//         console.log("done");
+//         appData.expenses[a] = b;
+//     } else {
+
+//     }
+//     i++;
+// }
+// while (i < 2);
+
+appData.moneyPerDay = appData.budget / 30;
+
+alert("Ежедневный бюджет: " + appData.moneyPerDay);
+
+if (appData.moneyPerDay < 100) {
+    console.log("Нищеброд");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Нууу пайдёёт");
+} else if (appData.moneyPerDay > 2000) {
+    console.log("Шикуешььь, мажор");
+} else {
+    console.log("что-то пошло не так...");
+}
