@@ -20,67 +20,72 @@ let appData = {
     expenses: {},
     optionalExpenses: {},
     income: [],
-    savings: true
+    savings: true,
+    chooseExpenses: function() {
+        for (let i = 0; i < 2; i++) {
+            let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+                b = prompt("Во сколько обойдется", '');
+        
+                if (typeof(a) === 'string' && typeof(a) != null && typeof(b) != null 
+                && a != '' && b != '' && a.length < 50) {
+                    console.log("done");
+                    appData.expenses[a] = b;
+                } else {
+                    console.log("something went wrong");
+                    i--;
+                }
+        }
+    },
+    detectDayBudget: function() {
+        appData.moneyPerDay = (appData.budget / 30).toFixed();
+        alert("Ежедневный бюджет: " + appData.moneyPerDay);
+    },
+    detectLevel: function() {
+        if (appData.moneyPerDay < 100) {
+            alert("Нищеброд");
+        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+            alert("Нууу пайдёёт");
+        } else if (appData.moneyPerDay > 2000) {
+            alert("Шикуешььь, мажор");
+        } else {
+            alert("что-то пошло не так...");
+        }
+    },
+    checkSavings: function() {
+        if (appData.savings == true) {
+            let save = +prompt("Сколько бабок имеешь, фраер?"),
+                percent = +prompt("Процент какой хочешь, фраерок?");
+    
+            appData.monthIncome = save/100/12*percent;
+            alert("В месяц доить нас будешь на: " + appData.monthIncome);
+        }
+    },
+    chooseOptExpenses: function() {
+        for (let i = 0; i < 3; i++) {
+            let a = prompt("Статья необязательных расходов?", "");
+            appData.optionalExpenses[i+1] = a;
+        }
+    },
+    chooseIncome: function() {
+        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую) ', "");
+        while (!isNaN(items) || items == "" || items == null){
+            items = prompt('Что принесет дополнительный доход? (Перечислите через запятую) ', "");
+        }
+        this.income = items.split(', ');
+        this.income.push(prompt("Ничё не забыл, Вася?", "no"));
+        this.income.sort();
+
+        appData.income.forEach(function(_val, index, arr) {
+                alert("Способы доп заработка: " + (index + 1) + ': ' + arr[index]);
+        });
+    },
 };
 
-function chooseExpenses() {
-    for (let i = 0; i < 2; i++) {
-        let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
-            b = prompt("Во сколько обойдется", '');
-    
-            if (typeof(a) === 'string' && typeof(a) != null && typeof(b) != null && a != '' && b != '' && a.length < 50) {
-                console.log("done");
-                appData.expenses[a] = b;
-            } else {
-                console.log("something went wrong");
-                i--;
-            }
-    }
+for(let item in appData){
+    console.log("Наша программа включает в себя след данные: " + item);
 }
 
-chooseExpenses();
 
-function detectDayBudget() {
-    appData.moneyPerDay = (appData.budget / 30).toFixed();
-    alert("Ежедневный бюджет: " + appData.moneyPerDay);
-}
-
-detectDayBudget();
-
-function detectLevel() {
-    if (appData.moneyPerDay < 100) {
-        alert("Нищеброд");
-    } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-        alert("Нууу пайдёёт");
-    } else if (appData.moneyPerDay > 2000) {
-        alert("Шикуешььь, мажор");
-    } else {
-        alert("что-то пошло не так...");
-    }
-}
-
-detectLevel();
-
-function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
-        let a = prompt("Статья необязательных расходов?", "");
-        appData.optionalExpenses[i+1] = a;
-    }
-}
-
-chooseOptExpenses();
-
-function checkSavings() {
-    if (appData.savings == true) {
-        let save = +prompt("Сколько бабок имеешь, фраер?"),
-            percent = +prompt("Процент какой хочешь, фраерок?");
-
-        appData.monthIncome = save/100/12*percent;
-        alert("В месяц доить нас будешь на: " + appData.monthIncome);
-    }
-}
-
-checkSavings();
 
 
 

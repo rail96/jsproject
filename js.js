@@ -1,40 +1,107 @@
 // 'use strict';
 
-// let num = 20;
+// // function first(){
+// //     setTimeout( function(){
+// //         console.log(1);
+// //     }, 500);
+// // }
 
-// function showFirstMessage(text) {
-//     alert(text);
-//     let num = 10;
-// }
+// // function second(){
+// //     console.log(2);
+// // }
 
-// showFirstMessage("Zdarova, daun");
+// // first();
+// // second();
 
+// // function learnJs(lang, callback){
+// //     console.log("I learn " + lang);
+// //     callback();
+// // }
 
+// // function done() {
+// //     console.log("I passed lesson 3");
+// // }
 
-// let calc = function (a,b) {
-//     return (a+b);
+// // learnJs("JavaScript", done);
+
+// let options = {
+//     width: 1024,
+//     height: 1024,
+//     name: "test"
 // };
 
-let calc = (a,b) => a+b;
+// console.log(options.name);
+// options.bool = false;
+// options.colors = {
+//     border: "black",
+//     bg: "red"
+// };
 
-console.log(calc(5,6));
+// delete options.bool;
 
-console.log(calc(10,6));
+// console.log(options);
 
-function retVar() {
-    let num = 50;
-    return num;
+// for (let key in options){
+//     console.log("Свойство " + key + ' имеет значение ' + options[key]);
+// }
+// console.log(Object.keys(options).length);
+
+// let arr = ["first", 2, 3, "four", 5];
+
+// arr.forEach(function(item, i, mass) {
+//     console.log(i + ":" + item + " (массив:  "+ mass + ')');
+// });
+
+
+// let mass = [1,3,4,6,7];
+// mass[99] = 99;
+// let i = 1;
+// for (let key in mass) {
+//     console.log(i + " " + key);
+//     i++;
+// }
+
+// // for (let i = 0; i < arr.length; i++){
+// //     console.log(arr[i]);
+// // }
+
+// // arr.pop();
+// // arr.push("5");
+// // arr.shift();
+// // arr.unshift("1");
+// // console.log(arr);
+
+// let ans = prompt("", ""),
+//     arr = [];
+
+// arr = ans.split(',');
+// console.log(arr);
+
+// let arr = ["aawe", 'zzz', 'pp', 'rqa'],
+//     i = arr.join(', ');
+
+// //console.log(arr);
+// console.log(i);
+
+let arr = [1,15,4],
+    i = arr.sort(compareNum);
+
+function compareNum(a,b) {
+    return a-b;
 }
+console.log(i);
 
-let anotherNum = retVar();
+let soldier = {
+    health: 100,
+    armor: 100
+};
 
-let str = "test";
-console.log(str.length);
+let john = {
+    health: 100
+};
 
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
+john.__proto__ = soldier;
 
-let twelve = "12.2px";
-//console.log(Math.round(twelve));
-console.log(parseInt(twelve));
-console.log(parseFloat(twelve));
+console.log(john);
+console.log(john.armor);
+
