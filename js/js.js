@@ -32,7 +32,7 @@ optionalExpensesBtn.disabled = true;
 countBtn.disabled = true;
 
 
-nachatRaschetBtn.addEventListener('click', function() {
+nachatRaschetBtn.addEventListener('click', () => {
     time = prompt("Введите дату в формате YYYY-MM-DD", '');
     money = +prompt("Ваш бюджет на месяц", '');
 
@@ -51,7 +51,7 @@ nachatRaschetBtn.addEventListener('click', function() {
     countBtn.disabled = false;
 });
 
-expensesBtn.addEventListener('click', function() {
+expensesBtn.addEventListener('click', () => {
     let sum = 0;
 
     for (let i = 0; i < expensesItems.length; i++) {
@@ -69,7 +69,7 @@ expensesBtn.addEventListener('click', function() {
     requiredExpenses.textContent = sum;
 });
 
-optionalExpensesBtn.addEventListener('click', function() {
+optionalExpensesBtn.addEventListener('click', () => {
     let sum = 0;
     for (let i = 0; i < optionalExpensesItems.length; i++) {
         let a = optionalExpensesItems[i].value;
@@ -78,7 +78,7 @@ optionalExpensesBtn.addEventListener('click', function() {
     }
 });
 
-countBtn.addEventListener('click', function () {
+countBtn.addEventListener('click', () => {
     if (appData.budget != undefined) {
         appData.moneyPerDay = ((appData.budget - +requiredExpenses.textContent) / 30).toFixed();
         daylyBudget.textContent = appData.moneyPerDay;
@@ -98,13 +98,13 @@ countBtn.addEventListener('click', function () {
 
 });
 
-incomeItem.addEventListener('change', function() {
+incomeItem.addEventListener('change', () => {
     let items = incomeItem.value;
     appData.income = items.split(', ');
     extraIncome.textContent = appData.income;
 });
 
-checkSavings.addEventListener('click', function() {
+checkSavings.addEventListener('click', () => {
     if (appData.savings == true){
         appData.savings = false;
     } else {
@@ -113,7 +113,7 @@ checkSavings.addEventListener('click', function() {
 
 });
 
-sumValue.addEventListener('input', function () {
+sumValue.addEventListener('input', () => {
     if (appData.savings == true) {
         let sum = +sumValue.value,
             percent = +percentValue.value;
@@ -126,7 +126,7 @@ sumValue.addEventListener('input', function () {
     }
 });
 
-percentValue.addEventListener('input', function() {
+percentValue.addEventListener('input', () => {
     if (appData.savings == true) {
         let sum = +sumValue.value,
             percent = +percentValue.value;
